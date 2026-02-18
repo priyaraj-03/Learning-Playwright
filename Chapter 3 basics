@@ -1,0 +1,6 @@
+// This is the comment. - This code will not be execute.
+console.log("Hello world");
+function printHello() {
+    console.log("Hello TheTestingAcademy!");
+}
+printHello();
