@@ -1,0 +1,46 @@
+const isPresent = true;
+const isDisplayed = true;
+const isEnabled = false;
+
+let state;
+
+// Determine element state using strict equality
+if (isPresent === true && isDisplayed === true && isEnabled === true) {
+    state = "READY";
+} 
+else if (isPresent === true && isDisplayed === true && isEnabled === false) {
+    state = "DISABLED";
+} 
+else if (isPresent === true && isDisplayed === false) {
+    state = "HIDDEN";
+} 
+else if (isPresent === false) {
+    state = "NOT FOUND";
+}
+
+// Determine severity using ternary operator
+const severity = (isPresent === false)
+    ? "CRITICAL"
+    : (isDisplayed === false || isEnabled === false)
+        ? "WARNING"
+        : "OK";
+
+// Decide QA action
+let action;
+
+if (state === "READY") {
+    action = "Proceed with interaction.";
+} 
+else if (state === "DISABLED") {
+    action = "Wait or verify why the element is disabled.";
+} 
+else if (state === "HIDDEN") {
+    action = "Scroll or wait until the element becomes visible.";
+} 
+else if (state === "NOT FOUND") {
+    action = "Check locator or application state immediately.";
+}
+
+console.log("Element State:", state);
+console.log("Severity Level:", severity);
+console.log("Recommended Action:", action);
