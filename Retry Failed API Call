@@ -1,0 +1,28 @@
+let attempt = 0;
+let maxRetries = 5;
+let success = false;
+
+console.log("Starting API call simulation...\n");
+
+do {
+    attempt++;
+    console.log(`Attempt ${attempt}...`);
+
+    // Simulate API call success/failure (40% success chance)
+    let randomValue = Math.random();
+    
+    if (randomValue > 0.6) {
+        success = true;
+        console.log("API Call Successful ✅");
+    } else {
+        console.log("API Call Failed ❌");
+    }
+
+} while (!success && attempt < maxRetries);
+
+console.log("\nFinal Result:");
+if (success) {
+    console.log(`API call succeeded after ${attempt} attempt(s).`);
+} else {
+    console.log(`API call failed after ${maxRetries} attempts.`);
+}
