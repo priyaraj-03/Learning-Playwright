@@ -1,0 +1,45 @@
+// Updated test results array
+let testResults = ["pass", "pass", "fail", "pass", "skip", "pass", "fail", "pass"];
+
+// Counters
+let passCount = 0;
+let failCount = 0;
+let skipCount = 0;
+
+// Loop through results
+for (let i = 0; i < testResults.length; i++) {
+    if (testResults[i] === "pass") {
+        passCount++;
+    } else if (testResults[i] === "fail") {
+        failCount++;
+    } else if (testResults[i] === "skip") {
+        skipCount++;
+    }
+}
+
+// Total tests
+let totalTests = testResults.length;
+
+// Pass rate calculation
+let passRate = totalTests > 0 
+    ? ((passCount / totalTests) * 100).toFixed(2)
+    : 0;
+
+// Verdict logic
+let verdict;
+if (failCount === 0) {
+    verdict = "READY FOR RELEASE ✅ (All tests passed)";
+} else if (failCount <= 2) {
+    verdict = "REVIEW REQUIRED ⚠️ (Minor failures detected)";
+} else {
+    verdict = "BLOCK RELEASE ❌ (Too many failures)";
+}
+
+// Print Test Report
+console.log("===== TEST EXECUTION REPORT =====");
+console.log("Total Tests   :", totalTests);
+console.log("Passed        :", passCount);
+console.log("Failed        :", failCount);
+console.log("Skipped       :", skipCount);
+console.log("Pass Rate     :", passRate + "%");
+console.log("Verdict       :", verdict);
