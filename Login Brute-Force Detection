@@ -1,0 +1,47 @@
+// Global failed attempt counter using var
+var failedAttempts = 0;
+
+// Fixed credentials and threshold using const
+const VALID_EMAIL = "admin@testingacademy.com";
+const VALID_PASSWORD = "Test@1234";
+const MAX_FAILED_ATTEMPTS = 3;
+
+// Simulated login attempts
+const attempts = ["wrong", "wrong", "wrong", "correct"];
+
+let index = 0;
+let accountLocked = false;
+
+do {
+    let currentAttempt = attempts[index];
+    let enteredEmail = VALID_EMAIL;
+    let enteredPassword;
+
+    // Simulate password entry
+    if (currentAttempt === "correct") {
+        enteredPassword = VALID_PASSWORD;
+    } else {
+        enteredPassword = "WrongPassword";
+    }
+
+    if (accountLocked === true) {
+        console.log(`Attempt ${index + 1}: 🔒 ACCOUNT LOCKED - Rejected`);
+    }
+    else if (enteredEmail === VALID_EMAIL && enteredPassword === VALID_PASSWORD) {
+        console.log(`Attempt ${index + 1}: ✅ SUCCESS`);
+        failedAttempts = 0;
+    }
+    else {
+        failedAttempts++;
+        
+        if (failedAttempts === MAX_FAILED_ATTEMPTS) {
+            accountLocked = true;
+            console.log(`Attempt ${index + 1}: ❌ FAILED - Strike ${failedAttempts}/3 🚨 ACCOUNT LOCKED`);
+        } else {
+            console.log(`Attempt ${index + 1}: ❌ FAILED - Strike ${failedAttempts}/3`);
+        }
+    }
+
+    index++;
+
+} while (index < attempts.length);
