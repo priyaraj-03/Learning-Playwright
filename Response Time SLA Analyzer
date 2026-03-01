@@ -1,0 +1,47 @@
+const responseTimes = [120, 230, 450, 510, 180, 620];
+const SLA_LIMIT = 500;
+
+let index = 0;
+let totalRequests = responseTimes.length;
+let minResponse = responseTimes[0];
+let maxResponse = responseTimes[0];
+let totalTime = 0;
+let slaBreaches = 0;
+
+while (index < totalRequests) {
+
+    let currentTime = responseTimes[index];
+
+    // Track minimum response time
+    if (currentTime < minResponse) {
+        minResponse = currentTime;
+    }
+
+    // Track maximum response time
+    if (currentTime > maxResponse) {
+        maxResponse = currentTime;
+    }
+
+    // Count SLA breaches
+    if (currentTime > SLA_LIMIT) {
+        slaBreaches++;
+    }
+
+    totalTime += currentTime;
+    index++;
+}
+
+// Calculate average and breach percentage
+let averageResponse = totalTime / totalRequests;
+let breachPercentage = ((slaBreaches / totalRequests) * 100).toFixed(2);
+
+// Determine overall status
+let overallStatus = (slaBreaches > 0) 
+    ? "❌ SLA VIOLATED" 
+    : "✅ SLA MET";
+
+console.log("Total Requests:", totalRequests);
+console.log("Min Response:", minResponse + "ms");
+console.log("Max Response:", maxResponse + "ms");
+console.log("SLA Breaches:", slaBreaches + " (" + breachPercentage + "%)");
+console.log("Overall Status:", overallStatus);
