@@ -1,0 +1,27 @@
+{
+  "name": "learning-playwright",
+  "version": "1.0.0",
+  "description": "",
+  "main": "Chapter 9 For_Loops.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/priyaraj-03/Learning-Playwright.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/priyaraj-03/Learning-Playwright/issues"
+  },
+  "homepage": "https://github.com/priyaraj-03/Learning-Playwright#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.58.2"
+  },
+  "dependencies": {
+    "playwright": "^1.58.2"
+  }
+}
