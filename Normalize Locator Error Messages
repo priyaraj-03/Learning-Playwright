@@ -1,0 +1,27 @@
+// Normalize Locator Error Messages Given a raw Playwright error message string, write a function that trims extra spaces, converts the message to lowercase, collapses multiple spaces into a single space, and prints a category. Use TIMEOUT if the normalized message contains "timeout", LOCATOR if it contains "locator", otherwise GENERAL. 
+// Input: rawMessage = " Locator not found after TIMEOUT "
+function normalizeLocatorError(rawMessage) {
+  // Normalize the message
+  const normalized = rawMessage
+    .trim()                 // remove leading/trailing spaces
+    .toLowerCase()          // convert to lowercase
+    .replace(/\s+/g, " ");  // collapse multiple spaces
+
+  let category;
+
+  if (normalized.includes("timeout")) {
+    category = "TIMEOUT";
+  } else if (normalized.includes("locator")) {
+    category = "LOCATOR";
+  } else {
+    category = "GENERAL";
+  }
+
+  console.log("Normalized Message:", normalized);
+  console.log("Category:", category);
+}
+
+// Example input
+const rawMessage = " Locator not found after TIMEOUT ";
+
+normalizeLocatorError(rawMessage);
