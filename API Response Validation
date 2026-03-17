@@ -1,0 +1,14 @@
+let responses = [200, 201, 404, 500, 404, 200, 503];
+
+// 1. Check if ALL responses are successful (200–299)
+const allSuccessful = responses.every(code => code >= 200 && code <= 299);
+
+// 2. Find the FIRST non-success code
+const firstError = responses.find(code => code < 200 || code > 299);
+
+// 3. Return all unique error codes
+const uniqueErrors = [...new Set(responses.filter(code => code < 200 || code > 299))];
+
+console.log("All Successful:", allSuccessful);
+console.log("First Error Code:", firstError);
+console.log("Unique Error Codes:", uniqueErrors);
