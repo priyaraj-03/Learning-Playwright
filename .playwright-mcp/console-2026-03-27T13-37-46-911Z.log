@@ -1,0 +1,6 @@
+[    3616ms] [WARNING] Unsatisfied version 16.14.0 from @microsoft/powerpages-host of shared singleton module react-dom (required ^17.0.0) @ https://content.powerapps.com/resource/powerappsportal/controls/host/main.b1a931c657.chunk.js:4
+[    5813ms] [WARNING] Some icons were re-registered. Applications should only call registerIcons for any given icon once. Redefining what an icon is may have unintended consequences. Duplicates include: 
+GlobalNavButton, ChevronDown, ChevronUp, Edit, Add, Cancel, More, Settings, Mail, Filter (+ 5393 more) @ https://content.powerapps.com/resource/powerappsportal/controls/host/66.abb5fcbf8e.chunk.js:0
+[   36901ms] [WARNING] Unsatisfied version 16.14.0 from @microsoft/powerpages-host of shared singleton module react-dom (required ^17.0.0) @ https://content.powerapps.com/resource/powerappsportal/controls/host/main.b1a931c657.chunk.js:4
+[   39008ms] [WARNING] Some icons were re-registered. Applications should only call registerIcons for any given icon once. Redefining what an icon is may have unintended consequences. Duplicates include: 
+GlobalNavButton, ChevronDown, ChevronUp, Edit, Add, Cancel, More, Settings, Mail, Filter (+ 5393 more) @ https://content.powerapps.com/resource/powerappsportal/controls/host/66.abb5fcbf8e.chunk.js:0

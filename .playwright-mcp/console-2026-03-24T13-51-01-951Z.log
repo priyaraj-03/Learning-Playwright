@@ -1,0 +1,2 @@
+[    2703ms] [WARNING] i18next::backendConnector: loading namespace translation for language en-US failed failed parsing /locales/en-US/translation.json to json @ https://fvpq2test.firstverify.com/static/js/main.8589642c.js:1
+[    3103ms] [WARNING] [DOM] Found 2 elements with non-unique id #outlined-basic: (More info: https://goo.gl/9p2vKq) %o %o @ https://fvpq2test.firstverify.com/:0

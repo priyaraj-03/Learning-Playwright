@@ -1,0 +1,63 @@
+const envName = "staging";
+
+// Fixed timeout values
+const DEV_TIMEOUT = 5000;
+const QA_TIMEOUT = 7000;
+const STAGING_TIMEOUT = 8000;
+const PROD_TIMEOUT = 10000;
+
+let config = {};
+
+switch (envName.toLowerCase()) {
+
+    case "dev":
+        config = {
+            environment: "DEV",
+            baseUrl: "https://dev-api.testingacademy.com",
+            apiKey: "dev_key_xxxx-xxxx",
+            timeout: DEV_TIMEOUT,
+            description: "Development - Internal testing"
+        };
+        break;
+
+    case "qa":
+        config = {
+            environment: "QA",
+            baseUrl: "https://qa-api.testingacademy.com",
+            apiKey: "qa_key_xxxx-xxxx",
+            timeout: QA_TIMEOUT,
+            description: "QA - Feature validation"
+        };
+        break;
+
+    case "staging":
+        config = {
+            environment: "STAGING",
+            baseUrl: "https://staging-api.testingacademy.com",
+            apiKey: "stg_key_xxxx-xxxx",
+            timeout: STAGING_TIMEOUT,
+            description: "Staging - Pre-production mirror"
+        };
+        break;
+
+    case "production":
+    case "prod":
+        config = {
+            environment: "PRODUCTION",
+            baseUrl: "https://api.testingacademy.com",
+            apiKey: "prod_key_xxxx-xxxx",
+            timeout: PROD_TIMEOUT,
+            description: "Production - Live environment"
+        };
+        break;
+
+    default:
+        console.log("Invalid environment selected.");
+}
+
+// Output
+console.log("Environment:", config.environment);
+console.log("Base URL:", config.baseUrl);
+console.log("API Key:", config.apiKey);
+console.log("Timeout:", config.timeout + "ms");
+console.log("Description:", config.description);

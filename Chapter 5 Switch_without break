@@ -1,0 +1,19 @@
+// Switch
+// 0 - Sunday, 1 - Monday, 2 - Tuesday, 3 - Wednesday, 4 - Thursday, 5 - Friday
+let day = 2;
+switch(day) {
+    case 0:
+        console.log(" Today is sunday");
+        case 1:
+            console.log(" Today is monday");
+            case 2:
+            console.log(" Today is tuesday");
+            case 3:
+                console.log(" Today is wednesday");
+                case 4:
+                    console.log(" Today is thursday");
+                    case 5:
+                        console.log(" Today is friday");
+                        default:
+                console.log(" Invalid day");
+        }

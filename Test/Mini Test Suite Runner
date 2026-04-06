@@ -1,0 +1,59 @@
+// Global counters using var
+var passCount = 0;
+var failCount = 0;
+
+// Test cases (5 total → 4 pass, 1 fail = 80%)
+const testCases = [
+    { name: "Status code is 200", actual: 200, expected: 200, type: "strictEqual" },
+    { name: "Response time < 500", actual: 450, expected: 500, type: "lessThan" },
+    { name: "User authenticated", actual: true, expected: true, type: "truthy" },
+    { name: "ID type is number", actual: 101, expected: "number", type: "typeCheck" },
+    { name: "Error message match", actual: "404", expected: 404, type: "strictEqual" }
+];
+
+for (let i = 0; i < testCases.length; i++) {
+
+    const tc = testCases[i];
+    let status;
+    let message = "";
+
+    switch (tc.type) {
+
+        case "strictEqual":
+            status = (tc.actual === tc.expected);
+            message = `(${tc.actual} === ${tc.expected})`;
+            break;
+
+        case "lessThan":
+            status = (tc.actual < tc.expected);
+            message = `(${tc.actual} < ${tc.expected})`;
+            break;
+
+        case "truthy":
+            status = (!!tc.actual === true);
+            message = `(truthy check)`;
+            break;
+
+        case "typeCheck":
+            status = (typeof tc.actual === tc.expected);
+            message = `(typeof ${tc.actual} === ${tc.expected})`;
+            break;
+    }
+
+    if (status === true) {
+        passCount++;
+        console.log(`✅ TC-0${i + 1}: ${tc.name} → PASS ${message}`);
+    } else {
+        failCount++;
+        console.log(`❌ TC-0${i + 1}: ${tc.name} → FAIL ${message}`);
+    }
+}
+
+// Summary
+const total = testCases.length;
+const passRate = ((passCount / total) * 100).toFixed(2);
+const overall = (failCount === 0) ? "✅ PASSED" : "❌ FAILED";
+
+console.log("...");
+console.log(`Pass Rate: ${passRate}%`);
+console.log(`Overall: ${overall}`);
