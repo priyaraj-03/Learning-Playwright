@@ -1,0 +1,29 @@
+// Build Test Users from Arrays
+// Write a JavaScript function that receives two arrays: one with names and one with roles. Return a new array of user objects in the format `{ username, email, role }`. The username should be lowercase with spaces replaced by underscores, and the email should use the domain `@playwrightbatch.com`.
+// Input: names = ["Amit Kumar", "Neha Singh"], roles = ["admin", "viewer"]
+
+function buildTestUsers(names, roles) {
+  const users = [];
+
+  for (let i = 0; i < names.length; i++) {
+    const username = names[i]
+      .toLowerCase()
+      .replace(/\s+/g, "_");
+
+    const email = `${username}@playwrightbatch.com`;
+
+    users.push({
+      username: username,
+      email: email,
+      role: roles[i]
+    });
+  }
+
+  return users;
+}
+
+// Example input
+const names = ["Amit Kumar", "Neha Singh"];
+const roles = ["admin", "viewer"];
+
+console.log(buildTestUsers(names, roles));

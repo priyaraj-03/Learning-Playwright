@@ -1,0 +1,38 @@
+// Global counter using var
+var userCounter = 1;
+
+// Fixed roles using const
+const roles = ["admin", "editor", "viewer", "tester", "manager"];
+const TOTAL_USERS = 8;
+
+console.log("Generating Test Users...\n");
+
+for (let i = 0; i < TOTAL_USERS; i++) {
+
+    // Generate Unique ID in USR-0001 format
+    let idNumber = String(userCounter).padStart(4, "0");
+    let userId = "USR-" + idNumber;
+
+    // Generate name
+    let name = "TestUser" + userCounter;
+
+    // Generate email
+    let email = "testuser" + userCounter + "@example.com";
+
+    // Cycle through roles
+    let role = roles[i % roles.length];
+
+    // Every 3rd user inactive (edge case)
+    let isActive = (userCounter % 3 === 0) ? false : true;
+
+    // Print user object
+    console.log({
+        id: userId,
+        name: name,
+        email: email,
+        role: role,
+        active: isActive
+    });
+
+    userCounter++;
+}
